@@ -1,0 +1,11 @@
+**/vendor/
+*.html
+*.njk
+*.png
+*.svg
+*.ico
+*.ai
+*.svg
+*.mp3
+*.webm
+
