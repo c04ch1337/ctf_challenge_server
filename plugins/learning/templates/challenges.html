@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ url_for('views.themes', path='css/challenge-board.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+	<div class="container">
+		<h1>Challenges</h1>
+	</div>
+</div>
+
+<div class="modal fade" id="challenge-window" tabindex="-1" role="dialog">
+</div>
+
+<div id="tools" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-lg" role="document" style="max-width: initial;">
+		<div class="modal-content" style="max-width: initial;">
+			<div class="modal-header">
+				<h5 class="modal-title">Tools</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+						aria-hidden="true">&times;</span></button>
+			</div>
+			<div class="modal-body" style="height: 75vh;">
+				<iframe class="border-0" src="{{ url_for('views.themes', path='vendor/cyberchef/cyberchef.html') }}" width="100%" height="100%"></iframe>
+			</div>
+			<div class="modal-footer"></div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			{% include "components/errors.html" %}
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-addon">
+						<i class="fas fa-search pt-3 px-3" aria-hidden="true"></i>
+					</span>
+				</div>
+				<input id="accordion_search_bar" type="text" class="form-control" placeholder="Search term">
+			</div>
+		</div>
+	</div>
+
+	<hr>
+
+	<div id='challenges-board'>
+		<div class="min-vh-50 d-flex align-items-center">
+			<div class="text-center w-100">
+				<i class="fas fa-circle-notch fa-spin fa-3x fa-fw spinner"></i>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div style="position: fixed; bottom: 0; right: 0; z-index: 2000;">
+	<button class="btn btn-secondary m-3 d-none d-sm-block" data-toggle="modal" data-target="#tools">
+		<i class="fa fa-wrench fa-6" aria-hidden="true"></i> Tools
+	</button>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+
+{% block entrypoint %}
+	<script defer src="{{ url_for('views.themes', path='js/pages/challenges.js') }}"></script>
+	<script type="module">
+	$.expr[':'].containsCaseInsensitive = function (n, i, m) {
+		return $(n).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
+	};
+	$('#accordion_search_bar').on('change keyup paste click', function () {
+		var searchTerm = $(this).val();
+		$('.card:not(:containsCaseInsensitive(' + searchTerm + '))').hide();
+		$('.card:containsCaseInsensitive(' + searchTerm + ')').show();
+	});
+	</script>
+{% endblock %}
