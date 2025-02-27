@@ -11,7 +11,7 @@ sleep 30
 # Add challenges to CTFd
 echo "Adding challenges to CTFd..."
 for i in {1..4}; do
-  docker exec -it ctfd-server python /opt/CTFd/add_challenge.py \
+  docker exec -it ctf_challenge_server python /opt/CTFd/add_challenge.py \
     --name "Challenge $i" \
     --description "$(cat challenges/challenge-$i/story.txt)" \
     --flags "$(cat challenges/challenge-$i/flags.txt)" \
