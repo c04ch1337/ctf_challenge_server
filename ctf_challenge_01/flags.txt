@@ -1,1 +1,10 @@
-
+CTF{sql_injection}
+CTF{hidden_directory}
+CTF{file_inclusion}
+CTF{base64_encoded}
+CTF{weak_security_header}
+CTF{weak_password_hash}
+CTF{command_injection}
+CTF{response_header}
+CTF{ssti_vulnerability}
+CTF{jwt_token}
