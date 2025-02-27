@@ -1,1 +1,2 @@
-
+The Shadow Web Portal
+In a dystopian future, a shadowy organization controls the flow of information through a vulnerable web portal. You are a hacker working for a group of freedom fighters. Your mission is to infiltrate the portal, exploit its weaknesses, and retrieve 10 hidden flags. Each flag represents a piece of encrypted data that can expose the organization's secrets and bring them down.
