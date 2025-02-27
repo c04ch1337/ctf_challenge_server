@@ -1,1 +1,2 @@
-
+The Enigma Server
+A rogue server has been discovered, hosting a mix of web, SSH, and SSL services. This server is believed to be a testing ground for a cybercriminal organization. Your mission is to infiltrate the server, exploit its vulnerabilities, and retrieve 10 hidden flags. Each flag represents a piece of encrypted data that can expose the organization's operations.
