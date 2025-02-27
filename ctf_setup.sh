@@ -13,9 +13,9 @@ echo "Adding challenges to CTFd..."
 for i in {1..4}; do
   docker exec -it ctf_challenge_server python /opt/CTFd/add_challenge.py \
     --name "Challenge $i" \
-    --description "$(cat challenges/challenge-$i/story.txt)" \
-    --flags "$(cat challenges/challenge-$i/flags.txt)" \
-    --hints "$(cat challenges/challenge-$i/hints.txt)"
+    --description "$(cat challenges/ctf_challenge_0$i/story.txt)" \
+    --flags "$(cat challenges/ctf_challenge_0$i/flags.txt)" \
+    --hints "$(cat challenges/ctf_challenge_0$i/hints.txt)"
 done
 
 echo "CTFd server is running on http://localhost:8080"
