@@ -1,1 +1,10 @@
-
+Look for a common misconfiguration in the CMS login page.
+Check for insecure file upload functionality.
+Exploit SQL injection in the search feature.
+Find a hidden directory using directory brute-forcing.
+Exploit XSS in the comment section.
+Crack a weak password hash.
+Exploit a misconfigured .htaccess file.
+Use a known exploit for an outdated CMS plugin.
+Exploit a CSRF vulnerability in the admin panel.
+Decode a base64-encoded string in the page source.
