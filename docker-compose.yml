@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  ctfd:
+    build: .
+    ports:
+      - "8080:8000"
+    volumes:
+      - ctfd-data:/opt/CTFd
+      - ./challenges:/opt/CTFd/challenges
+    container_name: ctfd-server
+    restart: unless-stopped
+
+volumes:
+  ctfd-data:
