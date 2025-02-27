@@ -1,1 +1,10 @@
-
+CTF{broken_auth}
+CTF{exposed_file}
+CTF{idor_vulnerability}
+CTF{jwt_token}
+CTF{ssrf_vulnerability}
+CTF{weak_api_key}
+CTF{misconfigured_cors}
+CTF{response_header}
+CTF{command_injection}
+CTF{base64_encoded}
