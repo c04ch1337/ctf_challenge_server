@@ -1,1 +1,10 @@
-
+Exploit a broken authentication mechanism in the login API.
+Find a sensitive file exposed in the web root directory.
+Exploit an insecure direct object reference (IDOR) in the profile page.
+Decode a JWT token to find the flag.
+Exploit a server-side request forgery (SSRF) vulnerability in the API.
+Crack a weak API key.
+Exploit a misconfigured CORS policy.
+Find a flag hidden in the response headers.
+Exploit a command injection vulnerability in the user profile update feature.
+Decode a base64-encoded string in the page source.
