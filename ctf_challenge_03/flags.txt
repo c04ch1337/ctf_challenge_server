@@ -1,1 +1,10 @@
-
+CTF{weak_credentials}
+CTF{insecure_file_upload}
+CTF{sql_injection}
+CTF{directory_traversal}
+CTF{xss_vulnerability}
+CTF{weak_password_hash}
+CTF{misconfigured_htaccess}
+CTF{outdated_plugin}
+CTF{csrf_vulnerability}
+CTF{base64_encoded}
