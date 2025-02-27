@@ -2,10 +2,10 @@
 
 # Backup CTFd data
 echo "Backing up CTFd data..."
-docker exec -it ctfd-server tar -czvf /opt/CTFd/ctfd-backup.tar.gz /opt/CTFd
+docker exec -it ctf_challenge_server tar -czvf /opt/CTFd/ctfd-backup.tar.gz /opt/CTFd
 
 # Copy backup to host
-docker cp ctfd-server:/opt/CTFd/ctfd-backup.tar.gz .
+docker cp ctf_challenge_server:/opt/CTFd/ctfd-backup.tar.gz .
 
 # Push to GitHub
 echo "Pushing backup to GitHub..."
