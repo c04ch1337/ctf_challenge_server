@@ -1,1 +1,10 @@
-
+Exploit a SQL injection vulnerability in the login page.
+Find a hidden directory using directory brute-forcing.
+Exploit a file inclusion vulnerability in the search feature.
+Decode a base64-encoded string in the page source.
+Exploit a misconfigured security header.
+Crack a weak password hash.
+Exploit a command injection vulnerability in the admin panel.
+Find a flag hidden in the response headers.
+Exploit a server-side template injection (SSTI) vulnerability.
+Decode a JWT token to find the flag.
