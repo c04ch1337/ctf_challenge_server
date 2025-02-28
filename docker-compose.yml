@@ -8,7 +8,7 @@ services:
     volumes:
       - ctfd-data:/opt/CTFd
       - ./challenges:/opt/CTFd/challenges
-    container_name: ctfd-server
+    container_name: ctf_challenge_server
     restart: unless-stopped
 
 volumes:
