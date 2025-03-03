@@ -5,7 +5,7 @@ import os
 import time
 
 # CTF Challenge Server API URL and admin credentials
-CTFD_URL = "http://localhost:8080"
+CTFD_URL = "http://localhost:8000"
 ADMIN_USERNAME = "admin"
 ADMIN_PASSWORD = "password"
 
