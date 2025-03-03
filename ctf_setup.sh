@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Build and run the CTFd server
-echo "Building and starting CTFd server..."
+# Build and run the CTF Challenge server
+echo "Building and starting CTF Challenge Server..."
 docker-compose up -d
 
-# Wait for CTFd to initialize
-echo "Waiting for CTFd to initialize..."
-sleep 30
+# Wait for CTF Challenge Server to initialize
+echo "Waiting for CTF Challenge Server to initialize..."
+sleep 60  # Increased wait time
 
 # Install Python and required dependencies
 echo "Installing Python and dependencies..."
@@ -18,7 +18,7 @@ docker exec -it ctf_challenge_server pip3 install requests
 docker cp add_challenges.py ctf_challenge_server:/opt/CTFd/add_challenges.py
 
 # Run the add_challenges.py script
-echo "Adding challenges to CTFd..."
+echo "Adding challenges to CTF Challenge Server..."
 docker exec -it ctf_challenge_server python3 /opt/CTFd/add_challenges.py
 
-echo "CTFd server is running on http://localhost:8080"
+echo "CTF Challenge server is running on http://localhost:8080"
