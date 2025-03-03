@@ -8,14 +8,17 @@ docker-compose up -d
 echo "Waiting for CTFd to initialize..."
 sleep 30
 
-# Add challenges to CTFd
+# Install Python and required dependencies
+echo "Installing Python and dependencies..."
+docker exec -it ctf_challenge_server apt-get update
+docker exec -it ctf_challenge_server apt-get install -y python3 python3-pip
+docker exec -it ctf_challenge_server pip3 install requests
+
+# Copy the add_challenges.py script to the container
+docker cp add_challenges.py ctf_challenge_server:/opt/CTFd/add_challenges.py
+
+# Run the add_challenges.py script
 echo "Adding challenges to CTFd..."
-for i in {1..4}; do
-  docker exec -it ctf_challenge_server python /opt/CTFd/add_challenge.py \
-    --name "Challenge $i" \
-    --description "$(cat challenges/ctf_challenge_0$i/story.txt)" \
-    --flags "$(cat challenges/ctf_challenge_0$i/flags.txt)" \
-    --hints "$(cat challenges/ctf_challenge_0$i/hints.txt)"
-done
+docker exec -it ctf_challenge_server python3 /opt/CTFd/add_challenges.py
 
 echo "CTFd server is running on http://localhost:8080"
