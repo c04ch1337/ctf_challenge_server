@@ -14,11 +14,11 @@ ADMIN_USERNAME="admin"
 ADMIN_PASSWORD="password"
 
 # Use the CTF API to set admin credentials
-docker exec -it ctf_challenge_server python3 <<EOF
+docker exec --user root ctf_challenge_server python3 <<EOF
 import requests
 
 # CTF API URL
-CTF_URL = "http://localhost:8080"
+CTFD_URL = "http://localhost:8080"
 
 # Default admin credentials (CTF initial setup uses these)
 DEFAULT_USERNAME = "admin"
@@ -29,7 +29,7 @@ NEW_USERNAME = "${ADMIN_USERNAME}"
 NEW_PASSWORD = "${ADMIN_PASSWORD}"
 
 # Login with default credentials
-login_url = f"{CTF_URL}/login"
+login_url = f"{CTFD_URL}/login"
 login_data = {
     "name": DEFAULT_USERNAME,
     "password": DEFAULT_PASSWORD,
@@ -41,7 +41,7 @@ if response.status_code != 200:
 cookies = response.cookies
 
 # Change admin password
-change_password_url = f"{CTF_URL}/admin/reset_password"
+change_password_url = f"{CTFD_URL}/admin/reset_password"
 change_password_data = {
     "confirm": NEW_PASSWORD,
     "password": NEW_PASSWORD,
@@ -53,7 +53,7 @@ if response.status_code != 200:
 
 # Change admin username (if needed)
 if NEW_USERNAME != DEFAULT_USERNAME:
-    change_username_url = f"{CTF_URL}/admin/users/1"
+    change_username_url = f"{CTFD_URL}/admin/users/1"
     change_username_data = {
         "name": NEW_USERNAME,
     }
@@ -66,16 +66,16 @@ EOF
 
 # Install Python and required dependencies
 echo "Installing Python and dependencies..."
-docker exec -it ctf_challenge_server apt-get update
-docker exec -it ctf_challenge_server apt-get install -y python3 python3-pip
-docker exec -it ctf_challenge_server pip3 install requests
+docker exec --user root ctf_challenge_server apt-get update
+docker exec --user root ctf_challenge_server apt-get install -y python3 python3-pip
+docker exec --user root ctf_challenge_server pip3 install requests
 
 # Copy the add_challenges.py script to the container
 docker cp add_challenges.py ctf_challenge_server:/opt/CTFd/add_challenges.py
 
 # Run the add_challenges.py script
 echo "Adding challenges to CTF..."
-docker exec -it ctf_challenge_server python3 /opt/CTFd/add_challenges.py
+docker exec --user root ctf_challenge_server python3 /opt/CTFd/add_challenges.py
 
 echo "CTF server is running on http://localhost:8080"
 echo "Admin username: ${ADMIN_USERNAME}"
